@@ -131,6 +131,6 @@ Links have been provided that you will need download the playbook and configurat
   - To modify a playbook, run nano filebeat.playbook.yml
   - Change to any file name using the nano command as needed to modify that particular file.
 
-Enjoy your new Elk-server with beats!
+Enjoy serving Elk with beats!
 
 
