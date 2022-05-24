@@ -72,43 +72,51 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly secure_____, in addition to restricting access_____ to the network.
+Load balancing ensures that the application will be highly __secure__, in addition to restricting __access__ to the network.
 What aspect of security do load balancers protect?
-The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider. (https://avinetworks.com/what-is-load-balancing/)
+__The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider.__ _(Source https://avinetworks.com/what-is-load-balancing/)_
 What is the advantage of a jump box?
+_the jump box has only one path in via SSH, and no other protocols are allowed outbound to the Internet or into the corporate network._ (Source: https://www.linux-magazine.com/Online/Features/Jump-Box-Security)
 
-
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the __data__ and system __logs__.
+- What does Filebeat watch for?
+_Filebeat monitors the log files_
+- What does Metricbeat record?
+_Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash._ (Source: https://www.elastic.co)
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name       | Function        | Ip Address | Operating System     |
 |------------|-----------------|------------|----------------------|
 | Jump Box   | Gateway         | 10.0.0.4   | Linux (ubuntu 20.04) |
+| Elk-Server | Virtual Machine | 10.1.0.4   | Linux (ubuntu 20.04) |
 | Web-1      | Virtual Machine | 10.0.0.5   | Linux (ubuntu 20.04) |
 | Web-2      | Virtual Machine | 10.0.0.6   | Linux (ubuntu 20.04) |
 | Web-3      | Virtual Machine | 10.0.0.6   | Linux (ubuntu 20.04) |
-| Elk-Server | Virtual Machine | 10.1.0.4   | Linux (ubuntu 20.04) |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the __Jumpbox__ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- _20.92.124.7_
+- _10.0.0.4_
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by _SSH_.
+- Which machine did you allow to access your ELK VM?
+-- _Only the Local computer_
+- What was its IP address? _50.115.241.43_
 
 A summary of the access policies in place can be found in the table below.
 
-| Name       | Publicly Accessible | Ip Address     |
-|------------|---------------------|----------------|
-| Jump Box   | Yes                 | 20.53.224.18   |
-| Elk Server | Yes                 | 52.189.197.156 |
+|      Name     | Publicly Accessible |   Allowed IP Addresses   |
+|:-------------:|:-------------------:|:------------------------:|
+| Jump Box      | No                  | 20.53.224.18 on SSH 22   |
+| Elk Server    | No                  | 52.189.197.156 on SSH 22 |
+| Load Balancer | No                  | 20.213.37.243 on Http 80 |
+| Web-1         | No                  | 10.0.0.5 on SSH 22       |
+| Web-2         | No                  | 10.0.0.6 on SSH 22       |
+| Web-3         | No                  | 10.0.0.7 on SSH 22       |
 
 ### Elk Configuration
 
@@ -148,3 +156,5 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+
