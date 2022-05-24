@@ -2,14 +2,14 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![Alt Text](https://github.com/cybertekjoe/Project-1/blob/main/Diagrams/Unit12-Homework-NetworkDiagram.drawio.png "Network Diagram")
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
   - _TODO: Enter the playbook file._
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -31,12 +31,13 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name       | Function        | Ip Address | Operating System     |
+|------------|-----------------|------------|----------------------|
+| Jump Box   | Gateway         | 10.0.0.4   | Linux (ubuntu 20.04) |
+| Web-1      | Virtual Machine | 10.0.0.5   | Linux (ubuntu 20.04) |
+| Web-2      | Virtual Machine | 10.0.0.6   | Linux (ubuntu 20.04) |
+| Web-3      | Virtual Machine | 10.0.0.6   | Linux (ubuntu 20.04) |
+| Elk-Server | Virtual Machine | 10.1.0.4   | Linux (ubuntu 20.04) |
 
 ### Access Policies
 
@@ -50,16 +51,15 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name       | Publicly Accessible | Ip Address     |
+|------------|---------------------|----------------|
+| Jump Box   | Yes                 | 20.53.224.18   |
+| Elk Server | Yes                 | 52.189.197.156 |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- The main advantage of automating configuration with Ansible is to be able to configure multiple machines with only one playbook
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
