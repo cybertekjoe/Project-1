@@ -99,13 +99,13 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the __Jumpbox__ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _20.92.124.7_
-- _10.0.0.4_
+- _20.92.124.7_ (This is the public ip of your jumpbox)
+- _10.0.0.4_ (This is the private ip of your jumpbox
 
 Machines within the network can only be accessed by _SSH_.
 - Which machine did you allow to access your ELK VM?
 -- _Only the Local computer_
-- What was its IP address? _50.115.241.43_
+- What was its IP address? _50.115.241.43_ (This is the public ip of your local computer)
 
 A summary of the access policies in place can be found in the table below.
 
@@ -113,6 +113,7 @@ A summary of the access policies in place can be found in the table below.
 |:-------------:|:-------------------:|:------------------------:|
 | Jump Box      | No                  | 20.53.224.18 on SSH 22   |
 | Elk Server    | No                  | 52.189.197.156 on SSH 22 |
+|               |                     |     on port 5601         |
 | Load Balancer | No                  | 20.213.37.243 on Http 80 |
 | Web-1         | No                  | 10.0.0.5 on SSH 22       |
 | Web-2         | No                  | 10.0.0.6 on SSH 22       |
@@ -152,13 +153,14 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the __Install-Elk.yml__ file to __the Ansible folder__.
-![Alt Text](https://github.com/cybertekjoe/Project-1/blob/main/Images/Docker_ps_Results.png "Docker ps Output")
+- Copy the __[Install-Elk.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/install-elk.yml)__ file to __the Ansible folder__.
 
 - Update the __hosts__ file to include this statement under the webersver section
   - [elk]
   - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
-- update the __Elk-c
+
+- copy the filebeat 
+
 - Run the playbook, and navigate to http://(your-elk-server-ip):5601/app/kibana to check that the installation worked as expected.
 
 Copy the Ansible ELK Installation and VM Configuration
