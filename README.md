@@ -109,7 +109,7 @@ SSH into the control node and follow the steps below:
   - [elk]
   - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 
-- copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-configuration.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-configuration.yml), files to the Ansible folder
+- copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-configuration.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-configuration.yml), files to the Ansible folder. The configuration files will ensure that the beat files will be on the elk server. 
 
 - To run the playbooks:
   - First make sure the hosts file in the ansible folder has the elk information in it. It should be on line 25 if you downloaded the host file above. 
@@ -119,13 +119,6 @@ SSH into the control node and follow the steps below:
     - run "ansible-playbook metricbeat.yml"
 
 - Navigate to [http://(your-elk-server-ip):5601/app/kibana](http://(your-elk-server-ip):5601/app/kibana) to check that the installation worked as expected. Be sure to replace "your-elk-server-ip" to the ip address of your elk-server
-
-Copy the Ansible ELK Installation and VM Configuration
-Run the playbook using this command : ansible-playbook install-elk.yml
-  - The file is called install-elk.yml
-  - this file is copied to the ansible server in the /etc/ansible/ directory
-  - Change the  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
