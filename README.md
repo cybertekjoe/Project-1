@@ -7,59 +7,8 @@ The files in this repository were used to configure the network depicted below.
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook___ file may be used to install only certain pieces of it, such as Filebeat.
 
  The Elk Playbook
-```
----
-- name: Configure Elk VM with Docker
-  hosts: elk
-  remote_user: sysadmin
-  become: true
-  tasks:
-    # Use apt module
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        name: docker.io
-        state: present
+ See it >>>>[HERE](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/install-elk.yml)
 
-      # Use apt module
-    - name: Install pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-      # Use pip module
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
-
-      # Use sysctl module
-    - name: Use more memory
-      sysctl:
-        name: vm.max_map_count
-        value: "262144"
-        state: present
-        reload: yes
-
-      # Use docker_container module
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        published_ports:
-          - 5601:5601
-          - 9200:9200
-          - 5044:5044
-
-      # Use systemd module
-    - name: Enable service docker on boot
-      systemd:
-        name: docker
-        enabled: yes
-```
 This document contains the following details:
 - Description of the Topology
 - Access Policies
@@ -74,7 +23,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly __secure__, in addition to restricting __access__ to the network.
 What aspect of security do load balancers protect?
-__The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider.__ _(Source https://avinetworks.com/what-is-load-balancing/)_
+__The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDoS) attacks. It does this by shifting attack traffic from the corporate server to a public cloud provider.__ _(Source: https://avinetworks.com/what-is-load-balancing/)_
 What is the advantage of a jump box?
 _the jump box has only one path in via SSH, and no other protocols are allowed outbound to the Internet or into the corporate network._ (Source: https://www.linux-magazine.com/Online/Features/Jump-Box-Security)
 
@@ -162,8 +111,9 @@ SSH into the control node and follow the steps below:
 
 - copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-configuration.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-configuration.yml), files to the Ansible folder
 
-- Run the playbooks:
-  - First the install-elk.yml: run "ansible-playbook install-elk.yml"
+- To run the playbooks:
+  - First make sure the hosts file in the ansible folder has the elk information in it. It should be on line 25 if you downloaded the host file above. 
+  - Then install-elk.yml by running "ansible-playbook install-elk.yml"
   - Then the filebeat and metric beat playbooks
     - run "ansible-playbook filebeat.yml"
     - run "ansible-playbook metricbeat.yml"
@@ -174,7 +124,6 @@ Copy the Ansible ELK Installation and VM Configuration
 Run the playbook using this command : ansible-playbook install-elk.yml
   - The file is called install-elk.yml
   - this file is copied to the ansible server in the /etc/ansible/ directory
-  - Update the hosts file in the ansible folder to make the playbook run in ansible
   - Change the  How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - _navigate to in order to check that the ELK server is running?
 
