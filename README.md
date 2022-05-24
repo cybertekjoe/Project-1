@@ -140,7 +140,7 @@ This ELK server is configured to monitor the following machines:
 - Web-1 : 10.0.0.4
 - Web-2 : 10.0.0.5
 - Web-3 : 10.0.0.6
-- 
+
 We have installed the following Beats on these machines:
 - ELK Server, Web-1, Web-2, and Web-3
 - The ELK Stack Installed are: FileBeat and MetricBeat
@@ -153,15 +153,22 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the __[Install-Elk.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/install-elk.yml)__ file to __the Ansible folder__.
+- Copy the [Install-Elk.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/install-elk.yml) file to __the Ansible folder__.
+- Copy the [hosts](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/hosts) file to __the Ansible folder__.
 
-- Update the __hosts__ file to include this statement under the webersver section
+- The __hosts__ file includes this section below the webersver section including the python3 in the elk group
   - [elk]
   - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 
-- copy the filebeat 
+- copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-configuration.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-configuration.yml), files to the Ansible folder
 
-- Run the playbook, and navigate to http://(your-elk-server-ip):5601/app/kibana to check that the installation worked as expected.
+- Run the playbooks:
+  - First the install-elk.yml: run "ansible-playbook install-elk.yml"
+  - Then the filebeat and metric beat playbooks
+    - run "ansible-playbook filebeat.yml"
+    - run "ansible-playbook metricbeat.yml"
+
+- Navigate to http://(your-elk-server-ip):5601/app/kibana to check that the installation worked as expected.
 
 Copy the Ansible ELK Installation and VM Configuration
 Run the playbook using this command : ansible-playbook install-elk.yml
