@@ -168,7 +168,7 @@ SSH into the control node and follow the steps below:
     - run "ansible-playbook filebeat.yml"
     - run "ansible-playbook metricbeat.yml"
 
-- Navigate to http://(your-elk-server-ip):5601/app/kibana to check that the installation worked as expected.
+- Navigate to [http://(your-elk-server-ip):5601/app/kibana](http://(your-elk-server-ip):5601/app/kibana) to check that the installation worked as expected. Be sure to replace "your-elk-server-ip" to the ip address of your elk-server
 
 Copy the Ansible ELK Installation and VM Configuration
 Run the playbook using this command : ansible-playbook install-elk.yml
