@@ -109,7 +109,7 @@ SSH into the control node and follow the steps below:
   - [elk]
   - 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 
-- copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-configuration.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-configuration.yml), files to the Ansible folder. The configuration files will ensure that the beat files will be on the elk server. 
+- copy the [filebeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat.playbook.yml), [filebeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/filebeat-config.yml), [metricbeat.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat.playbook.yml), and [metricbeat-configuration.yml](https://github.com/cybertekjoe/Project-1/blob/main/Ansible/metricbeat-config.yml), files to the Ansible folder. The configuration files will ensure that the beat files will be on the elk server. 
 
 - To run the playbooks:
   - First make sure the hosts file in the ansible folder has the elk information in it. It should be on line 25 if you downloaded the host file above. 
@@ -120,6 +120,17 @@ SSH into the control node and follow the steps below:
 
 - Navigate to [http://(your-elk-server-ip):5601/app/kibana](http://(your-elk-server-ip):5601/app/kibana) to check that the installation worked as expected. Be sure to replace "your-elk-server-ip" to the ip address of your elk-server
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+Links have been provided that you will need download the playbook and configuration files
+- If you need to update the files, go to the ansible folder where you should have downloaded them and use nano to update the files.
+- If you need to move them from your download folder then use this command to move them to the ansible folder:
+  - navigate to your ansible folder.
+  - mv ~/Downloads/*.yml .
+  - mov ~/Downloads/hosts .
+- Use nano to modify the files as needed.
+  - Example: make sure you are in the ansible directory and run nano hosts to modify the hosts file.
+  - To modify a playbook, run nano filebeat.playbook.yml
+  - Change to any file name using the nano command as needed to modify that particular file.
+
+Enjoy your new Elk-server with beats!
 
 
